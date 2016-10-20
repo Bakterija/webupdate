@@ -32,7 +32,7 @@ Open terminal in application folder
 Make new zipfile and move it to webserver folder
 #Zip app folder contents
 python web_updater/build_updater.py
-##Set folder where to move zipfile
+##Set folder where to move zipfile (default path is "/var/www/html/)
 python web_updater/build_updater.py --webpath /var/www/html/myfolder/
 #Run "buildozer android debug" and zip .buildozer/android/app/*
 python web_updater/build_updater.py --buildozer-android  

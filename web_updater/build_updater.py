@@ -13,7 +13,7 @@ colorama.init(autoreset=True)
 
 class BuildUpdater(object):
     logger = None
-    www_path = '/var/www/html'
+    www_path = '/var/www/html/'
     def __init__(self, buildoze='none', **kwargs):
         if 'webpath' in kwargs:
             self.www_path = kwargs['webpath']
