@@ -13,8 +13,10 @@ colorama.init(autoreset=True)
 
 class BuildUpdater(object):
     logger = None
-    www_path = '/var/www/html/dev/apacheapp/'
+    www_path = '/var/www/html'
     def __init__(self, buildoze='none', **kwargs):
+        if 'webpath' in kwargs:
+            self.www_path = kwargs['webpath']
         self.printer('Increasing build number by 1 in %s' % (path[0]+'/version.txt'))
         ver = self.increase_version_number(path[0]+'/version.txt')
         if buildoze == 'none':
@@ -129,4 +131,7 @@ if __name__ == '__main__':
         buildoze = 'android'
     elif '--buildozer-android_new' in argv:
         buildoze = 'android_new'
+    for i, x in enumerate(argv):
+        if x == '--webpath':
+            kwargs['webpath'] = argv[i+1]
     BuildUpdater(buildoze=buildoze, **kwargs)
