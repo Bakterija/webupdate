@@ -1,0 +1,66 @@
+#: import aaa modules.multi_line_label.MultiLineLabel
+#: import aab modules.pep_widget.PepWidget
+
+<WebUpdate>:
+	TabbedPanel:
+		id: tabbed_panel
+		do_default_tab: False
+		tab_width: self.width / 3
+		tab_height: cm(1)
+		canvas.before:
+			Color:
+				rgba: 0.2, 0.2, 0.2, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+		TabbedPanelItem:
+			text: 'RecycleView'
+			StackLayout:
+				RecycleView:
+					id: rv
+					size_hint_y: None
+					height: self.parent.height - btn1.height
+					scroll_type: ['bars', 'content']
+					scroll_wheel_distance: dp(114)
+					bar_color: 0.15, 0.3, 0.6, 1
+					bar_inactive_color: 0.15, 0.3, 0.6, 0.4
+					bar_width: dp(10)
+					viewclass: 'MultiLineLabel'
+					data: []
+					RecycleBoxLayout:
+			            id: rv_box
+			            orientation: 'vertical'
+			            size_hint: 1, None
+			            height: self.minimum_height
+			            default_size: None, cm(1)
+			            default_size_hint: 1, None
+			            spacing: '2dp'
+				Button:
+					id: btn1
+					size_hint: 0.5, None
+					height: cm(1)
+					text: 'Btn 1'
+				Button:
+					size_hint: 0.5, None
+					height: cm(1)
+					text: 'Btn 2'
+
+		TabbedPanelItem:
+			text: 'Pep panel'
+			PepWidget:
+				id: pep_widget
+				size_hint_y: None
+				height: root.height - tabbed_panel.tab_height*1.1
+
+		TabbedPanelItem:
+			text: 'FileChooser'
+			StackLayout:
+				Button:
+					size_hint: 1, 0.1
+					text: fcs.path
+				FileChooser:
+					id: fcs
+					size_hint: 1, 0.9
+					FileChooserListLayout:
+						size_hint: 1, 1
