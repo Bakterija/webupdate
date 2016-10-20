@@ -1,5 +1,5 @@
 # webupdate
-My system for updating kivy apps from zip files on a apache webserver.
+My system for updating kivy apps from zip files on a apache webserver.    
 Tested in **Ubuntu 16.x**.
 
 **build_updater.py** increases version number in a text file by one and puts a zip archive of current folder (bin/ and .buildozer/ excluded) in a target folder (should be a webserver folder for apache_updater.py to read)
@@ -26,7 +26,7 @@ app_updater.check_update_thread()  #In a different thread
 app_updater.check_update()  #In main thread
 ```
 **Making new web builds:**    
-Make changes to application
+Make changes to application    
 Open terminal in application folder
 ```Bash
 Make new zipfile and move it to webserver folder
