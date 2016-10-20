@@ -14,12 +14,12 @@ Put web_updater in application folder
 from web_updater.apache_updater import ApacheUpdater
 ## Instantiate
 app_updater =  ApacheUpdater()
-## Set version path
-app_updater.version_path = sys.path[4]+'/web_updater/version.txt'  #place where updater finds its own version number
-## Set update path
-app_updater.update_path = sys.path[4]+'/'  #Place where update files will be extracted
-## Set http path
-app_updater.http_path = 'http://localhost/'  #Web address from which .zip file updates will be downloaded
+## Set version path (place where updater finds its own version number)
+app_updater.version_path = sys.path[4]+'/web_updater/version.txt'
+## Set update path (Place where update files will be extracted)
+app_updater.update_path = sys.path[4]+'/'
+## Set http path (Web address from which .zip file updates will be downloaded)
+app_updater.http_path = 'http://localhost/'
 
 ## Run update
 app_updater.check_update_thread()  #In a different thread
@@ -27,9 +27,9 @@ app_updater.check_update()  #In main thread
 ```
 **Making new web builds:**    
 Make changes to application    
-Open terminal in application folder
+Open terminal in application folder    
+Make new zipfile and move it to webserver folder with below commands
 ```Bash
-Make new zipfile and move it to webserver folder
 #Zip app folder contents
 python web_updater/build_updater.py
 ##Set folder where to move zipfile (default path is "/var/www/html/)
