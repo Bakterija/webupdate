@@ -27,7 +27,7 @@ app_updater.check_update()  #In main thread
 ```
 **Making new web builds:**    
 Make changes to application    
-Open terminal in application folder
+Open terminal in application folder    
 Make new zipfile and move it to webserver folder with below commands
 ```Bash
 #Zip app folder contents
